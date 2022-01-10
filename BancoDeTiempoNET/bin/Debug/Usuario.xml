@@ -1,0 +1,26 @@
+﻿<ArrayOfUsuario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Usuario>
+    <email>adri@gmail.com</email>
+    <nombre>adri</nombre>
+    <primerApellido>martinez</primerApellido>
+    <segundoApellido>villa</segundoApellido>
+    <telefono>5555555</telefono>
+    <balanceHoras>3</balanceHoras>
+  </Usuario>
+  <Usuario>
+    <email>javi@gmail.com</email>
+    <nombre>javi</nombre>
+    <primerApellido>morales</primerApellido>
+    <segundoApellido>estevez</segundoApellido>
+    <telefono>555555</telefono>
+    <balanceHoras>10</balanceHoras>
+  </Usuario>
+  <Usuario>
+    <email>oscar@gmail.com</email>
+    <nombre>oscar</nombre>
+    <primerApellido>solano</primerApellido>
+    <segundoApellido>naranjo</segundoApellido>
+    <telefono>55555</telefono>
+    <balanceHoras>4</balanceHoras>
+  </Usuario>
+</ArrayOfUsuario>

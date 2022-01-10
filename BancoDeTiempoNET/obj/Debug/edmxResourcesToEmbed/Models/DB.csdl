@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BancoDeTiempoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Notificacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="asunto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cuerpo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="EmailDemandante" Relationship="BancoDeTiempoModel.FK_IdDemandanteNotificacion" FromRole="Notificacion" ToRole="Usuario" />
+    <NavigationProperty Name="EmailOfertante" Relationship="BancoDeTiempoModel.FK_IdOfertanteNotificacion" FromRole="Notificacion" ToRole="Usuario" />
+    <Property Name="emailDemandante" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="emailOfertante" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="horas" Type="Double" />
+    <Property Name="fechaRealizacion" Type="DateTime" Precision="0" />
+    <Property Name="fechaPublicacion" Type="DateTime" Precision="0" />
+    <Property Name="servicioRealizado" Type="Byte" />
+    <NavigationProperty Name="EmailDemandante" Relationship="BancoDeTiempoModel.FK_IdDemandanteServicio" FromRole="Servicio" ToRole="Usuario" />
+    <NavigationProperty Name="EmailOfertante" Relationship="BancoDeTiempoModel.FK_IdOfertanteServicio" FromRole="Servicio" ToRole="Usuario" />
+    <Property Name="emailDemandante" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="emailOfertante" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="primerApellido" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="segundoApellido" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="balanceHoras" Type="Double" />
+  </EntityType>
+  <EntityContainer Name="CrudEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Notificacion" EntityType="Self.Notificacion" />
+    <EntitySet Name="Servicio" EntityType="Self.Servicio" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK_IdDemandanteNotificacion" Association="BancoDeTiempoModel.FK_IdDemandanteNotificacion">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Notificacion" EntitySet="Notificacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IdOfertanteNotificacion" Association="BancoDeTiempoModel.FK_IdOfertanteNotificacion">
+      <End EntitySet="Usuario" Role="Usuario" />
+      <End EntitySet="Notificacion" Role="Notificacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IdDemandanteServicio" Association="BancoDeTiempoModel.FK_IdDemandanteServicio">
+      <End EntitySet="Usuario" Role="Usuario" />
+      <End EntitySet="Servicio" Role="Servicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IdOfertanteServicio" Association="BancoDeTiempoModel.FK_IdOfertanteServicio">
+      <End EntitySet="Usuario" Role="Usuario" />
+      <End EntitySet="Servicio" Role="Servicio" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_IdDemandanteNotificacion">
+    <End Type="BancoDeTiempoModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="BancoDeTiempoModel.Notificacion" Role="Notificacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario" />
+      <Dependent Role="Notificacion" />
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IdOfertanteNotificacion">
+    <End Type="BancoDeTiempoModel.Usuario" Multiplicity="1" Role="Usuario" />
+    <End Type="BancoDeTiempoModel.Notificacion" Multiplicity="*" Role="Notificacion" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario" />
+      <Dependent Role="Notificacion" />
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IdDemandanteServicio">
+    <End Type="BancoDeTiempoModel.Usuario" Multiplicity="1" Role="Usuario" />
+    <End Type="BancoDeTiempoModel.Servicio" Multiplicity="*" Role="Servicio" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario" />
+      <Dependent Role="Servicio" />
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IdOfertanteServicio">
+    <End Type="BancoDeTiempoModel.Usuario" Multiplicity="1" Role="Usuario" />
+    <End Type="BancoDeTiempoModel.Servicio" Multiplicity="*" Role="Servicio" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario" />
+      <Dependent Role="Servicio" />
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,42 @@
+﻿<ArrayOfServicio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Servicio>
+    <id>7002</id>
+    <nombre>fontaneria</nombre>
+    <horas>2</horas>
+    <fechaRealizacion>2021-12-03T00:00:00</fechaRealizacion>
+    <fechaPublicacion>2021-12-01T00:00:00</fechaPublicacion>
+    <servicioRealizado>1</servicioRealizado>
+    <emailDemandante>javi@gmail.com</emailDemandante>
+    <emailOfertante>oscar@gmail.com</emailOfertante>
+  </Servicio>
+  <Servicio>
+    <id>8008</id>
+    <nombre>pintura pared</nombre>
+    <horas>5</horas>
+    <fechaRealizacion>2021-12-01T00:00:00</fechaRealizacion>
+    <fechaPublicacion>2021-12-01T00:00:00</fechaPublicacion>
+    <servicioRealizado>0</servicioRealizado>
+    <emailDemandante>adri@gmail.com</emailDemandante>
+    <emailOfertante>oscar@gmail.com</emailOfertante>
+  </Servicio>
+  <Servicio>
+    <id>8009</id>
+    <nombre>traslado</nombre>
+    <horas>6</horas>
+    <fechaRealizacion>2021-12-03T00:00:00</fechaRealizacion>
+    <fechaPublicacion>2021-12-01T00:00:00</fechaPublicacion>
+    <servicioRealizado>1</servicioRealizado>
+    <emailDemandante>oscar@gmail.com</emailDemandante>
+    <emailOfertante>adri@gmail.com</emailOfertante>
+  </Servicio>
+  <Servicio>
+    <id>8010</id>
+    <nombre>carpinteria</nombre>
+    <horas>3</horas>
+    <fechaRealizacion>2021-12-01T00:00:00</fechaRealizacion>
+    <fechaPublicacion>2021-12-01T00:00:00</fechaPublicacion>
+    <servicioRealizado>1</servicioRealizado>
+    <emailDemandante>javi@gmail.com</emailDemandante>
+    <emailOfertante>adri@gmail.com</emailOfertante>
+  </Servicio>
+</ArrayOfServicio>
